@@ -1,0 +1,422 @@
+:root {
+  --bg1: #071029;
+  --bg2: #0b2a5a;
+  --muted: rgba(255, 255, 255, 0.78);
+  --glass: rgba(255, 255, 255, 0.03);
+  --accent: linear-gradient(135deg, #7c3aed, #0ea5e9);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, 'Segoe UI', Roboto, Arial;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: #eaf2ff;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 18px;
+  padding: 24px;
+  align-items: start;
+}
+
+/* ==== Sidebar ==== */
+.sidebar {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: black;
+  padding: 6px;
+  box-shadow: 0 8px 24px #6500ef;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.nav button {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.16s;
+}
+
+.nav button:hover {
+  transform: translateX(6px);
+  color: #fff;
+}
+
+.nav button.active {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  color: #fff;
+}
+
+.credits {
+  font-size: 12px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+/* ==== Main ==== */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.title {
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ==== Global Styled Dropdowns ==== */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  color: #fff;
+  padding: 6px 28px 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+select:hover,
+select:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+select option {
+  background: #0b2a5a;
+  color: #fff;
+  padding: 8px;
+}
+
+select::-ms-expand {
+  display: none; /* remove default arrow IE */
+}
+
+/* ==== Buttons ==== */
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+.btn.muted {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ==== Display ==== */
+.screen {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subdisplay {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.display {
+  width: 100%;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px;
+  color: #eaf2ff;
+  font-size: 18px;
+  resize: none;
+  outline: none;
+}
+
+/* ==== Panel ==== */
+.panel {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 12px;
+}
+
+.calc-area {
+  background: var(--glass);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.btn-key {
+  padding: 12px;
+  border-radius: 10px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.03);
+  color: #eaf2ff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.12s, background 0.12s;
+}
+
+.btn-key:hover {
+  transform: translateY(-6px);
+}
+
+.btn-key.op {
+  background: linear-gradient(90deg, #7c3aed, #0ea5e9);
+}
+
+.btn-key.wide {
+  grid-column: span 2;
+}
+
+/* ==== Tools ==== */
+.side-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 12px;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.tool-card h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.result-box {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  font-size: 14px;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.btn.full {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.matrix-input {
+  width: 100%;
+  min-height: 100px;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: monospace;
+}
+
+/* ==== Inputs ==== */
+input[type=number],
+input[type=text],
+input[type=date],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eaf2ff;
+  font-size: 14px;
+}
+
+input[type=number]::placeholder,
+input[type=text]::placeholder,
+textarea::placeholder {
+  color: rgba(234, 242, 255, 0.5);
+}
+
+input[type="date"] {
+  color-scheme: dark;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 1000px) {
+  .app {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .pad {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.pad {
+  display: grid;
+  gap: 10px;
+}
+
+.btn-key {
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.05);
+  color: #eaf2ff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.12s, background 0.12s;
+}
+
+.btn-key:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-key.op {
+  background: linear-gradient(90deg, #7c3aed, #0ea5e9);
+}
+
+.btn-key.op:hover {
+  background: linear-gradient(90deg, #9f67ff, #2eb9ff);
+}
+/* ==== Animations ==== */
+
+/* Button press scale */
+.btn-key, .btn {
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.3s ease;
+}
+.btn-key:active, .btn:active {
+  transform: scale(0.9);
+}
+
+/* Operator button glow */
+.btn-key.op {
+  position: relative;
+  overflow: hidden;
+}
+.btn-key.op::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(124,58,237,0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+.btn-key.op:active::after {
+  width: 200%; height: 200%;
+  opacity: 0;
+}
+
+/* Display fade when updated */
+.display {
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.display.updated {
+  background: rgba(124, 58, 237, 0.15);
+  color: #fff;
+}
+
+/* Tool panel fade-in */
+.side-panel {
+  animation: fadeSlideIn 0.4s ease;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

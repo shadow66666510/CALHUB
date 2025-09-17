@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CalcHub — Universal Calculators</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- math.js -->
+  <script src="libs/libs/html2canvas.min.js"></script>
+  <!-- html2canvas & jsPDF -->
+  <script src="libs/libs/jspdf.umd.min.js"></script>
+  <script src="libs/libs/maths.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <img id="logoImg" src="assests/logo.png" alt="logo">
+        <div>
+          <h1>CalcHub</h1>
+          <div class="muted">All-in-One Calculator</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="active" data-mode="basic">Basic</button>
+        <button data-mode="scientific">Scientific</button>
+        <button data-mode="unit">Unit</button>
+        <button data-mode="financial">Financial</button>
+        <button data-mode="programmer">Programmer</button>
+        <button data-mode="date">Date & Time</button>
+        <button data-mode="matrix">Matrix</button>
+        <button data-mode="stats">Statistics</button>
+        <button data-mode="history">History</button>
+      </nav>
+      <div class="credits">Made with ❤️</div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <div class="title">Calculator</div>
+        <div class="actions">
+          <select id="trigMode">
+            <option value="DEG" selected>DEG</option>
+            <option value="RAD">RAD</option>
+            <option value="GRAD">GRAD</option>
+          </select>
+          <button id="downloadPdf" class="btn muted">Download PDF</button>
+          <button id="clearHistory" class="btn muted">Clear History</button>
+        </div>
+      </div>
+
+      <div class="screen">
+        <div id="subdisplay" class="subdisplay"></div>
+        <textarea id="display" class="display">0</textarea>
+      </div>
+
+      <div class="panel">
+        <div id="calcArea" class="calc-area">
+          <div id="pad" class="pad"></div>
+        </div>
+        <div id="toolArea" class="side-panel"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
